@@ -133,10 +133,9 @@ void create_list(t_list **list, int fd)
 void dealloc(t_list **list, t_list *cleaned_node, char *buf)
 {
     t_list *tmp;
+    
     if (*list == NULL)
         return ;
-    cleaned_node->str_buf = buf;
-    cleaned_node->next = NULL;
     while (*list)
     {
         tmp = (*list)->next;
@@ -153,15 +152,6 @@ void dealloc(t_list **list, t_list *cleaned_node, char *buf)
         free(cleaned_node);
     }
 }
-int ft_strlen(char *str)
-{
-    int len;
-
-    len = 0;
-    while(str[len])
-        len++;
-    return (len);
-}
 
 void polish_list(t_list **list)
 {
@@ -177,16 +167,16 @@ void polish_list(t_list **list)
 	i = 0;
 	while (last_node->str_buf[i] && last_node->str_buf[i] != '\n')
 		i++;
-	if (last_node->str_buf[i] == '\0')
-		return ;
-	unused_str = malloc(ft_strlen(last_node->str_buf + i + 1) + 1);
+	unused_str = malloc(BUFFER_SIZE + 1);
 	cleaned_node = malloc(sizeof(t_list));
     if (!unused_str || !cleaned_node)
-		return (free(unused_str), free(cleaned_node));
+		return ;
     k = 0;
-    while (last_node->str_buf[++i])
+    while (last_node->str_buf[i] && last_node->str_buf[++i])
 		unused_str[k++] = last_node->str_buf[i];
     unused_str[k] = '\0';
+    cleaned_node->str_buf = unused_str;
+    cleaned_node->next = NULL;
     dealloc(list, cleaned_node, unused_str);
 }
 
