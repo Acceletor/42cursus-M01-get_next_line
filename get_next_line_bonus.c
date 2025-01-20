@@ -137,7 +137,7 @@ void create_list(t_list **list, int fd)
     int char_read;
     char *buf;
 
-    if (!found_new_line(*list))
+    while (!found_new_line(*list))
     {
         buf = malloc(BUFFER_SIZE + 1);
         if (!buf)
