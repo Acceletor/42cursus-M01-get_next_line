@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ksuebtha <ksuebtha@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/24 18:04:32 by ksuebtha          #+#    #+#             */
+/*   Updated: 2025/01/24 18:06:31 by ksuebtha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
 
@@ -15,19 +27,19 @@
 
 typedef struct s_list
 {
-    char *str_buf;
-    struct s_list *next;
-}t_list;
+	char			*str_buf;
+	struct s_list	*next;
+}	t_list;
 
-void append_list(t_list **list, char *buf);
-int found_new_line(t_list *list);
-void create_list(t_list **list, int fd);
-void polish_list(t_list **list);
+void	append_list(t_list **list, char *buf);
+int		found_new_line(t_list *list);
+void	create_list(t_list **list, int fd);
+void	polish_list(t_list **list);
 char	*get_next_line(int fd);
-void dealloc(t_list **list, t_list *cleaned_node, char *buf);
-void copy_str(t_list *list, char *string_till_newline);
-int len_till_new_line(t_list *list);
-char *get_line(t_list *list);
-t_list *find_last_node(t_list *list);
+void	dealloc(t_list **list, t_list *cleaned_node, char *buf);
+void	copy_str(t_list *list, char *string_till_newline);
+int		len_till_new_line(t_list *list);
+char	*get_line(t_list *list);
+t_list	*find_last_node(t_list *list);
 
 #endif
