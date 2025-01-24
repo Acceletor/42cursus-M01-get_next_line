@@ -6,14 +6,14 @@
 /*   By: ksuebtha <ksuebtha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:12:15 by ksuebtha          #+#    #+#             */
-/*   Updated: 2025/01/24 18:13:29 by ksuebtha         ###   ########.fr       */
+/*   Updated: 2025/01/24 22:57:48 by ksuebtha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 42
 # endif
 
 # include <unistd.h> //read()
